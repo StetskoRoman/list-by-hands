@@ -1,10 +1,10 @@
 package com.example.arraylist.linkedList;
 
 import com.example.arraylist.StecList;
+import com.example.arraylist.arrayList.StecArrayList;
 import com.example.arraylist.collections.StecIterator;
 
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.Objects;
 
 /**
@@ -14,16 +14,18 @@ import java.util.Objects;
  */
 public class StecLinkedList<E> implements StecList<E> {
 
-
-    private Node<E> first;
-
     /**
-     * Pointer to last node.
+     * Pointer to the first node.
+     */
+    private Node<E> first;
+    /**
+     * Pointer to the last node.
      */
     private Node<E> last;
-
+    /**
+     * Size of list.
+     */
     private int currentSize = 0;
-
 
     public StecLinkedList() {
     }
@@ -96,9 +98,7 @@ public class StecLinkedList<E> implements StecList<E> {
     public void set(int index, E e) {
         checkIndex(index);
         Node<E> current = getNode(index);
-        E oldNode = current.element;
         current.element = e;
-
     }
 
     /**
@@ -208,12 +208,30 @@ public class StecLinkedList<E> implements StecList<E> {
     }
 
     /**
+     * sorting array.
+     */
+    @Override
+    public void sort() {
+        StecList<E> stecArrayList = new StecArrayList(currentSize);
+        for (int i = 0; i < currentSize; i++) {
+            stecArrayList.add(getNode(i).element);
+        }
+        stecArrayList.sort();
+
+        int count = 0;
+        for (int i = 0; i < currentSize; i++) {
+            this.set(count, stecArrayList.get(count));
+            count++;
+        }
+    }
+
+    /**
      * Just for working forEach
      * looks like not good realisation
      * @return custom iterator
      */
     @Override
-    public Iterator<E> iterator() {
+    public StecIterator<E> iterator() {
         E[] array = (E[]) new Object[currentSize];
         for (int i = 0; i < currentSize; i++) {
             array[i] = getNode(i).element;

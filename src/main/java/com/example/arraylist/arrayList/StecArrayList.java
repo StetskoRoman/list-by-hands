@@ -59,7 +59,6 @@ public class StecArrayList<E> implements StecList<E> {
         }
     }
 
-
     /**
      * Adds the specified element to the end of the array list.
      * @param e the element to be added
@@ -177,6 +176,14 @@ public class StecArrayList<E> implements StecList<E> {
     public void clean() {
         array = (E[]) new Object[DEFAULT_CAPACITY];
         currentSize = 0;
+    }
+
+    /**
+     * sorting array.
+     */
+    @Override
+    public void sort() {
+        Arrays.sort(array, 0, currentSize);
     }
 
     /**

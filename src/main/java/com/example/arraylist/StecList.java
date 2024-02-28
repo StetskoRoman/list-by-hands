@@ -15,4 +15,6 @@ public interface StecList<E> extends Iterable<E> {
     int size();
 
     void clean();
+
+    void sort();
 }

@@ -34,7 +34,13 @@ public class RunnerLinkedList {
         }
 
         linkedList.delete(2);
-        System.out.println("\n\ndelete by index 2 checked: " );
+        System.out.println("\n\ndeleting for index 2 checked: " );
+        for (Integer integer : linkedList) {
+            System.out.print(integer + " ");
+        }
+
+        linkedList.sort();
+        System.out.println("\n\nsorted: ");
         for (Integer integer : linkedList) {
             System.out.print(integer + " ");
         }
