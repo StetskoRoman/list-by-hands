@@ -1,11 +1,11 @@
-package com.example.arraylist;
+package com.example.arraylist.collections;
 
 import java.util.Iterator;
 
 public class StecIterator<E> implements Iterator<E> {
 
     private int index = 0;
-    private E[] array;
+    private final E[] array;
 
     public StecIterator(E[] array) {
         this.array = array;

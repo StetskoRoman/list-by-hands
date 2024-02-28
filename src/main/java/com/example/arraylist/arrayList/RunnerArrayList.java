@@ -1,11 +1,10 @@
-package com.example.arraylist;
+package com.example.arraylist.arrayList;
 
 import java.util.Objects;
 
 public class RunnerArrayList {
 
     public static void main(String[] args) {
-
 
         StecArrayList<Integer> list = new StecArrayList<>();
 
@@ -21,32 +20,27 @@ public class RunnerArrayList {
         list.add(25);
         list.add(101);
 
-        System.out.println("add in the end checked: " + list + " size = " + list.size() + " count = " + list.count);
-        System.out.println("get checked: " + list.get(1));
+        System.out.println("add in the end checked, with extending capacity: " + list + " size = " + list.size());
+        System.out.println("\nget checked: " + list.get(1));
+
+        list.set(1, 555);
+        System.out.println("\nset checked: " + list.get(1));
 
         list.clean();
-        System.out.println("clean checked: " + list + " size = " + list.size() + " count = " + list.count);
+        System.out.println("\nclean checked: " + list + " size = " + list.size() + " size = " + list.size());
 
         StecArrayList<Ways> waysStecArrayList = new StecArrayList<>();
-//        here will be my exception
-//        waysStecArrayList.add(1, new Ways(1l, 15));
         waysStecArrayList.add(new Ways(0l, 0));
         waysStecArrayList.add(1, new Ways(1l, 15));
         waysStecArrayList.add(0, new Ways(10l, 1050));
-        waysStecArrayList.add(new Ways(3l, 0));
-        waysStecArrayList.add(new Ways(4l, 0));
-        waysStecArrayList.add(new Ways(5l, 0));
-        waysStecArrayList.add(new Ways(6l, 0));
-        waysStecArrayList.add(new Ways(7l, 0));
-        waysStecArrayList.add(new Ways(8l, 0));
         waysStecArrayList.add(new Ways(9l, 0));
-        waysStecArrayList.add(5, new Ways(10000l, 11111));
-        System.out.println("Add in the middle with capacity increasing checked");
-        System.out.println(waysStecArrayList + "\n");
+        waysStecArrayList.add(2, new Ways(10000l, 11111));
 
+        System.out.println("\n Add in the middle with capacity increasing checked, custom Class realised");
+        System.out.println(waysStecArrayList + "  size = " + waysStecArrayList.size() + "\n");
 
-        waysStecArrayList.delete(5);
-        System.out.println("deleting checked " + waysStecArrayList);
+        waysStecArrayList.delete(3);
+        System.out.println("deleting checked \n" + waysStecArrayList + " size = " + waysStecArrayList.size());
 
     }
 
@@ -59,7 +53,6 @@ public class RunnerArrayList {
         public Ways(long cost, int town) {
             this.cost = cost;
             this.town = town;
-
         }
 
         @Override

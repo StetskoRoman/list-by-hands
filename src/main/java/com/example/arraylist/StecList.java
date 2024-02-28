@@ -1,14 +1,10 @@
 package com.example.arraylist;
 
-public interface StecList<E> extends Iterable {
-    /**
-     * add
-     * @param e
-     * @return
-     */
+public interface StecList<E> extends Iterable<E> {
+
     boolean add(E e);
 
-//    boolean addInMiddle(int index, E e);
+    void add(int index, E e);
 
     void set(int index, E e);
 
