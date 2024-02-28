@@ -1,8 +1,5 @@
 package com.example.arraylist.arrayList;
 
-import com.example.arraylist.collections.StecCollections;
-
-import java.util.Arrays;
 import java.util.Objects;
 
 public class RunnerArrayList {
