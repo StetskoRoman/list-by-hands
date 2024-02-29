@@ -1,8 +1,5 @@
 package com.example.arraylist.arrayList;
 
-import com.example.arraylist.collections.StecCollections;
-
-import java.util.Arrays;
 import java.util.Objects;
 
 public class RunnerArrayList {
@@ -48,10 +45,13 @@ public class RunnerArrayList {
         System.out.println("\nclean checked: " + waysStecArrayList + " size = " + waysStecArrayList.size() + " size = " + waysStecArrayList.size());
 
         System.out.println("\nCustom sort array");
-        StecCollections<Integer> stecCollections = new StecCollections<>(list);
-        Integer[] arr = stecCollections.listToArray();
-        Integer[] sortArr = stecCollections.sortArray(arr);
-        System.out.println(Arrays.toString(arr) + "\nsorted = " + Arrays.toString(sortArr));
+        list.sort();
+        System.out.println("\nsorted = " + list);
+
+        System.out.println("\nforEach checked, without null");
+        for (Integer integer : list) {
+            System.out.print(integer + "  ");
+        }
     }
 
     /**
@@ -74,6 +74,7 @@ public class RunnerArrayList {
                     ", town=" + town +
                     '}';
         }
+
 
         @Override
         public int compareTo(Ways o) {

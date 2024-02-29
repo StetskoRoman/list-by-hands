@@ -5,11 +5,20 @@ import com.example.arraylist.StecList;
 import java.lang.reflect.Array;
 
 public class StecCollections<E extends Comparable<E>> {
-
+//не преобразовывается потому что это интерфейс? или дело в конструкторе, или в Comparable - Object Comparable не имеет же вроде, мб поэтому?
     private StecList<E> list;
 
     public StecCollections(StecList<E> list) {
         this.list = list;
+    }
+
+    public static <E extends Comparable<E>> void sort(StecList<E> list) {
+        StecCollections<E> stecCollections = new StecCollections<>(list);
+        E[] arr = stecCollections.listToArray();
+        E[] sortArr = stecCollections.sortArray(arr);
+        for (int i = 0; i < list.size(); i++) {
+            list.set(i, sortArr[i]);
+        }
     }
 
     /**
@@ -27,7 +36,7 @@ public class StecCollections<E extends Comparable<E>> {
             return arrayA;
         }
         E[] arrayB = (E[]) Array.newInstance(list.get(0).getClass(), arrayA.length / 2);
-//        do not understand why it works in StecArrayList, but not here
+//        do not understand why it works in StecArrayList, but not here, E opened in constructor, but how could I say that I need in method the same E that I have in constructor
 //        E[] arrayB = (E[]) new Object[arrayA.length / 2];
         System.arraycopy(arrayA, 0, arrayB, 0, arrayA.length / 2);
 

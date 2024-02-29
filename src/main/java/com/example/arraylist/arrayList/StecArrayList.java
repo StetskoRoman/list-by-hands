@@ -3,7 +3,9 @@ package com.example.arraylist.arrayList;
 import com.example.arraylist.StecList;
 import com.example.arraylist.collections.StecIterator;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.Objects;
 
 /**
  * Assume that Collections in java do not exist
@@ -195,16 +197,21 @@ public class StecArrayList<E> implements StecList<E> {
         return new StecIterator(array);
     }
 
-    /**
-     * for debugging purpose I show all buckets including null.
-     * @return
-     */
     @Override
     public String toString() {
-        return "StecArrayList{" +
-                "array=" + Arrays.toString(array) +
-                '}';
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append("[");
+        for (int i = 0; i < currentSize; i++) {
+            if (i == currentSize - 1) {
+                stringBuilder.append(array[i]+"]");
+                break;
+            }
+            stringBuilder.append(array[i] + " ");
+        }
+
+        return stringBuilder.toString();
     }
+
 
     @Override
     public boolean equals(Object o) {
