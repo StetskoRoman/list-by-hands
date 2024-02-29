@@ -1,5 +1,8 @@
 package com.example.arraylist.arrayList;
 
+import com.example.arraylist.collections.StecCollections;
+
+import java.util.Arrays;
 import java.util.Objects;
 
 public class RunnerArrayList {
@@ -26,9 +29,6 @@ public class RunnerArrayList {
         list.set(1, 555);
         System.out.println("set checked (index 1): " + list.get(1));
 
-        list.clean();
-        System.out.println("\nclean checked: " + list + " size = " + list.size() + " size = " + list.size());
-
         StecArrayList<Ways> waysStecArrayList = new StecArrayList<>(6);
         waysStecArrayList.add(new Ways(0l, 0));
         waysStecArrayList.add(1, new Ways(1l, 15));
@@ -44,6 +44,14 @@ public class RunnerArrayList {
         waysStecArrayList.delete(3);
         System.out.println("\ndeleting checked \n" + waysStecArrayList + " size = " + waysStecArrayList.size());
 
+        waysStecArrayList.clean();
+        System.out.println("\nclean checked: " + waysStecArrayList + " size = " + waysStecArrayList.size() + " size = " + waysStecArrayList.size());
+
+        System.out.println("\nCustom sort array");
+        StecCollections<Integer> stecCollections = new StecCollections<>(list);
+        Integer[] arr = stecCollections.listToArray();
+        Integer[] sortArr = stecCollections.sortArray(arr);
+        System.out.println(Arrays.toString(arr) + "\nsorted = " + Arrays.toString(sortArr));
     }
 
     /**

@@ -116,6 +116,7 @@ public class StecArrayList<E> implements StecList<E> {
      * @return array of elements with extended capacity
      */
     private E[] getEs(E e, int start, int startFuture, int len) {
+//        в другом случае происходит ClassCastException, здесь же работает
         E[] futureArray = (E[]) new Object[capacity];
         System.arraycopy(array, start, futureArray, startFuture, len);
         futureArray[currentSize] = e;

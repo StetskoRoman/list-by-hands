@@ -1,5 +1,9 @@
 package com.example.arraylist.linkedList;
 
+import com.example.arraylist.collections.StecCollections;
+
+import java.util.Arrays;
+
 public class RunnerLinkedList {
 
     public static void main(String[] args) {
@@ -12,6 +16,12 @@ public class RunnerLinkedList {
         linkedList.set(1, 15);
         linkedList.set(0,0);
 
+        for (Integer integer : linkedList) {
+            System.out.print(integer + " ");
+        }
+
+        linkedList.sort();
+        System.out.println("\n\nsorted: ");
         for (Integer integer : linkedList) {
             System.out.print(integer + " ");
         }
@@ -39,11 +49,13 @@ public class RunnerLinkedList {
             System.out.print(integer + " ");
         }
 
-        linkedList.sort();
-        System.out.println("\n\nsorted: ");
-        for (Integer integer : linkedList) {
-            System.out.print(integer + " ");
-        }
+
+
+        System.out.println("\n\nCustom sort array");
+        StecCollections<Integer> stecCollections = new StecCollections<>(linkedList);
+        Integer[] arr = stecCollections.listToArray();
+        Integer[] sortArr = stecCollections.sortArray(arr);
+        System.out.println(Arrays.toString(arr) + "\nsorted = " + Arrays.toString(sortArr));
 
     }
 }
