@@ -30,7 +30,7 @@ public class RunnerLinkedList {
         System.out.println("\nchecked size = " + linkedList.size());
 
         linkedList.clean();
-        System.out.println("\nchecked clean(): size = " + linkedList.size());
+        System.out.println("\nchecked clean(), size = "  + linkedList.size());
 
         linkedList.add(10);
         linkedList.add(12);
@@ -49,13 +49,11 @@ public class RunnerLinkedList {
             System.out.print(integer + " ");
         }
 
-
-
         System.out.println("\n\nCustom sort array");
-        StecCollections<Integer> stecCollections = new StecCollections<>(linkedList);
-        Integer[] arr = stecCollections.listToArray();
-        Integer[] sortArr = stecCollections.sortArray(arr);
-        System.out.println(Arrays.toString(arr) + "\nsorted = " + Arrays.toString(sortArr));
+        StecCollections.sort(linkedList);
+        for (Integer integer : linkedList) {
+            System.out.print(integer + " ");
+        }
 
     }
 }

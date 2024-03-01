@@ -201,6 +201,9 @@ public class StecArrayList<E> implements StecList<E> {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder();
         stringBuilder.append("[");
+        if (currentSize == 0) {
+            stringBuilder.append("]");
+        }
         for (int i = 0; i < currentSize; i++) {
             if (i == currentSize - 1) {
                 stringBuilder.append(array[i]+"]");

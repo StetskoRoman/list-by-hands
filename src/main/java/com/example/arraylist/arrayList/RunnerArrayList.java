@@ -1,5 +1,8 @@
 package com.example.arraylist.arrayList;
 
+import com.example.arraylist.collections.StecCollections;
+
+import java.util.Collections;
 import java.util.Objects;
 
 public class RunnerArrayList {
@@ -35,18 +38,18 @@ public class RunnerArrayList {
 
         System.out.println("\nadding in the middle with capacity increasing checked, custom Class realised\n" +  waysStecArrayList);
 
-        waysStecArrayList.sort();
-        System.out.println("\nsort checked\n" +  waysStecArrayList + " size = " + waysStecArrayList.size());
+        StecCollections.sort(waysStecArrayList);
+        System.out.println("\ncustom sort checked\n" +  waysStecArrayList + " size = " + waysStecArrayList.size());
 
         waysStecArrayList.delete(3);
         System.out.println("\ndeleting checked \n" + waysStecArrayList + " size = " + waysStecArrayList.size());
 
         waysStecArrayList.clean();
-        System.out.println("\nclean checked: " + waysStecArrayList + " size = " + waysStecArrayList.size() + " size = " + waysStecArrayList.size());
+        System.out.println("\nclean checked: " + waysStecArrayList + " size = " + waysStecArrayList.size());
 
         System.out.println("\nCustom sort array");
-        list.sort();
-        System.out.println("\nsorted = " + list);
+        StecCollections.sort(list);
+        System.out.println("sorted = " + list);
 
         System.out.println("\nforEach checked, without null");
         for (Integer integer : list) {
