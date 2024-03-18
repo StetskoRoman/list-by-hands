@@ -2,6 +2,10 @@ package com.example.arraylist.arrayList;
 
 import com.example.arraylist.collections.StecCollections;
 
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.ref.SoftReference;
+import java.lang.ref.WeakReference;
 import java.util.Collections;
 import java.util.Objects;
 
@@ -55,6 +59,21 @@ public class RunnerArrayList {
         for (Integer integer : list) {
             System.out.print(integer + "  ");
         }
+
+        Ways waysStrong = new Ways(1, 5);
+//        Ways other = waysStrong;
+        WeakReference<Ways> weakReference = new WeakReference<>(waysStrong);
+        SoftReference<Ways> softReference = new SoftReference<>(waysStrong);
+//        ReferenceQueue<Ways> referenceQueue = new ReferenceQueue<>();
+//        PhantomReference<Ways> phantomReference = new PhantomReference<Ways>(waysStrong, referenceQueue);
+        waysStrong = null;
+        System.out.println("\n strong " + waysStrong);
+        System.out.println("weak " + weakReference.get() + "  " + weakReference.getClass());
+
+//        System.out.println(" weak " + weakReference.get());
+        System.out.println(" soft " + softReference.get());
+//        System.out.println(" phantom " + phantomReference.get() + "  " + phantomReference + "   " );
+
     }
 
     /**
